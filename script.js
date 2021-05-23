@@ -1,9 +1,9 @@
 // 1-rock 2-paper 3-scissors
 function playRound() 
 {
-    var you = prompt("1-rock 2-paper 3-scissors") ; 
+    let you = prompt("1-rock 2-paper 3-scissors") ; 
     console.log(you) ; 
-    const cpu = Math.floor(Math.random()*3) + 1 // Generates a random number between 1 - 3 ; 
+    let cpu = Math.floor(Math.random()*3) + 1 // Generates a random number between 1 - 3 ; 
     console.log(cpu) ;    
     let message ; 
     
@@ -46,9 +46,10 @@ function playRound()
 
 function game()
 {
-    var winCounter = 0, loseCounter = 0, tieCounter=0 ;
-    var i ; 
+    let winCounter = 0, loseCounter = 0, tieCounter=0 ;
+    let i ; 
     let result; 
+    let message ; 
     for (i=0;i<5;i++)
     {
     result = playRound();
@@ -59,7 +60,7 @@ function game()
     else 
     tieCounter++;
     }
-    let message = "Win: " + winCounter + " Lose: " + loseCounter + " tie: " + tieCounter ;  
+    message = "Win: " + winCounter + " Lose: " + loseCounter + " tie: " + tieCounter ;  
     console.log(message) ;  
 }
 
