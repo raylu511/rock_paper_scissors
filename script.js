@@ -2,11 +2,8 @@
 function playRound() 
 {
     let you = prompt("1-rock 2-paper 3-scissors") ; 
-    console.log(you) ; 
-    let cpu = Math.floor(Math.random()*3) + 1 // Generates a random number between 1 - 3 ; 
-    console.log(cpu) ;    
-    let message ; 
-    
+    let cpu = Math.floor(Math.random()*3) + 1 // Generates a random number between 1 - 3 ;  
+    let message ;  
     if(you==1)
     {
         if(cpu==1)
@@ -64,5 +61,5 @@ function game()
     console.log(message) ;  
 }
 
-game(); 
+
       
