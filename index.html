@@ -12,25 +12,39 @@
         <h1>Choose your weapon</h1>
     </header>
        
-    <div class="player-titles">
-        <p class="player-title">Player</p>
-        <p class="computer-title">Computer</p>
-    </div>
-    <div class="avatars">
-        <img class="player" src="rps_img/rambo.png" alt="rambo">
-        <img class="computer"style="left:850px;" src="rps_img/joker.png" alt="joker">
-    </div>
-    
-    <div class="main-scoreboard">
-        <p class="scoreboard">ScoreBoard </p>
-        <p class="main-score">0-0</p>
+    <div class="main-titles">
+        <span id="playerTitle" class="badge">Player</span> 
+        <span id="computerTitle" class="badge">Computer</span>
     </div>
 
-    <div class="main-choices">
-        <button class="button"><img src="rps_img/paper.png" alt="paper"></button>
-        <button class="button"><img src="rps_img/rock.png" alt="rock"></button>
-        <button class="button"><img src="rps_img/scissors.png"alt="scissors"></button>
+
+    <div class="avatars">
+        <div class="avatar" id="player"><img src="rps_img/rambo.png" alt="rambo"></div>
+        <div class="avatar" id="computer"><img src="rps_img/joker.png" alt="joker"></div>
     </div>
+
+
+    <div class="score_board" >
+        <span id="playerScore">0</span>:<span id="computerScore">0</span>
+    </div>
+
+
+    <div class="main-choices">
+        <div class = "choice" id ="rock">
+            <img src="rps_img/rock.png" alt="">
+        </div>
+        <div class = "choice" id ="paper">
+            <img src="rps_img/paper.png" alt="">
+        </div>
+        <div class = "choice" id ="scissors">
+            <img src="rps_img/scissors.png" alt="">
+        </div>
+    </div>
+
+    <div class="results">
+        <p>Results</p>
+    </div>
+    
 </body>
 <script src="script.js"></script>
 </html>
