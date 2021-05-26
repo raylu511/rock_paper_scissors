@@ -1,65 +1,101 @@
-// 1-rock 2-paper 3-scissors
-function playRound() 
-{
-    let you = prompt("1-rock 2-paper 3-scissors") ; 
-    let cpu = Math.floor(Math.random()*3) + 1 // Generates a random number between 1 - 3 ;  
-    let message ;  
-    if(you==1)
-    {
-        if(cpu==1)
-             message = "It's a tie" ; 
-        
-        else if(cpu==2)
-             message = "You lose" ; 
-         
-        else
-         message = "You win" ; 
-   }
-    if(you==2)
-    {
-        if(cpu==1) 
-           message = "You win" ;
-          
-        
-        else if(cpu==2) 
-           message = "It's a tie" ; 
-        
-        else 
-            message = "You lose" ;        
-    }
-    if(you==3) 
-    {
-        if(cpu==1)
-            message = "You lose" ; 
+let playerScore = 0 ;
+let computerScore = 0 ;
+const playerScore_span = document.getElementById("playerScore") ; 
+const computerScore_span = document.getElementById("computerScore") ; 
+const rock_choice = document.getElementById("rock") ; 
+const paper_choice = document.getElementById("paper") ; 
+const scissors_choice = document.getElementById("scissors") ; 
+const results_p = document.querySelector(".results >p") ; 
 
-        else if(cpu==2)
-            message = "You win" ; 
-        
-        else
-            message = "It's a tie" ; 
-    }
-    return message ;
+function playerWin(playerChoice,computerChoice)
+{
+    playerScore++ ;
+    playerScore_span.innerHTML = playerScore ;
+    results_p.innerHTML= (playerChoice + " beats " + computerChoice + ". You win!!! ") ;
+}
+function playerLose(playerChoice,computerChoice)
+{
+    computerScore++ ; 
+    computerScore_span.innerHTML= computerScore;
+    results_p.innerHTML= (computerChoice + " beats " + playerChoice + ". You lost!!! ") ;
+}
+function draw()
+{
+    results_p.innerHTML = "It's a tie!" ; 
+
+}
+//Gets computer selection 
+function getComputerChoice()
+{
+    randomGameValue = Math.floor(Math.random()*3) ; 
+    
+    if(randomGameValue==0) 
+        return "rock" ; 
+    else if(randomGameValue==1) 
+        return "paper";
+    else
+        return "scissors";
+}
+function getPlayerChoice()
+{
+    rock_choice.addEventListener('click', function()
+    {
+        playRound("rock") 
+    })
+
+    paper_choice.addEventListener('click', function()
+    {
+        playRound("paper")
+    })
+
+    scissors_choice.addEventListener('click', function()
+    {
+        playRound("scissors"); 
+    })
 }
 
-function game()
+// Main game function 
+function playRound(playerSelection)  
 {
-    let winCounter = 0, loseCounter = 0, tieCounter=0 ;
-    let i ; 
-    let result; 
-    let message ; 
-    for (i=0;i<5;i++)
+    const computerSelection = getComputerChoice() ; 
+    if(playerSelection=="rock") 
     {
-    result = playRound();
-    if(result=="You win") 
-    winCounter++ ; 
-    else if(result=="You lose")
-    loseCounter++; 
-    else 
-    tieCounter++;
+        if(computerSelection=="rock")
+            draw() ; 
+            
+        else if(computerSelection=="paper")
+            playerLose(playerSelection,computerSelection);
+
+        else
+            playerWin(playerSelection,computerSelection);
     }
-    message = "Win: " + winCounter + " Lose: " + loseCounter + " tie: " + tieCounter ;  
-    console.log(message) ;  
+
+    else if(playerSelection=="paper") 
+    {
+        if(computerSelection=="rock")
+        playerWin(playerSelection,computerSelection);
+
+        else if(computerSelection=="paper")
+            draw() ; 
+
+        else
+        playerLose(playerSelection,computerSelection);
+
+    }
+
+    else
+    {
+        if(computerSelection=="rock")
+        playerLose(playerSelection,computerSelection);
+
+
+        else if(computerSelection=="paper")
+        playerWin(playerSelection,computerSelection); 
+
+        else
+            draw() ; 
+    }
 }
 
+getPlayerChoice() ; 
 
-      
